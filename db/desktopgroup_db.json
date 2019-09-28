@@ -1,0 +1,15 @@
+[
+    {
+        "desktopgroup_id" : "1",
+        "desktopgroup_name" : "fuck",
+        "desktoplist" :
+        [
+            {
+                "desktop_id" : "1",
+                "desktop_name" : "desktop1",
+                "vdi_mode" : "1",
+                "desktop_ip" : "10.17.24.10"
+            }
+        ]
+    }
+]
