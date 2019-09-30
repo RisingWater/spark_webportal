@@ -5,6 +5,7 @@ import { HeaderBar } from './component/headerbar.js'
 import { SideMenu  } from './component/sideMenu.js'
 import { UserTable } from './component/user_table.js'
 import { AppGroupTable} from './component/appgroup_table.js'
+import { DesktopGroupTable } from './component/desktopgroup_table.js'
 
 class RootContext extends React.Component {
     constructor(props,context) {
@@ -25,13 +26,15 @@ class RootContext extends React.Component {
             return (<UserTable/>);
         } else if (this.state.menuSelectedkey == 2) {
             return (<AppGroupTable/>);
+        } else if (this.state.menuSelectedkey == 3) {
+            return (<DesktopGroupTable/>);    
         } else {
             return (<div>{this.state.menuSelectedkey}</div>);
         }
     }
 
     render() {
-        const Menus = [ { name : "用户管理", key : "1", disable: false}, { name : "应用管理", key : "2", disable: false} ];
+        const Menus = [ { name : "用户管理", key : "1", disable: false}, { name : "应用管理", key : "2", disable: false}, { name : "桌面管理", key : "3", disable: false} ];
         return (
             <Layout>
                 <HeaderBar title="简易接入管理平台"/>

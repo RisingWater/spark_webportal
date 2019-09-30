@@ -23,8 +23,16 @@ class UserFormTemplate extends React.Component {
                 <Form.Item label="应用组">
                     {getFieldDecorator('appgroup_id', {rules: [{ required: true, message: '应用组不能为空' }]})(
                     <Select placeholder="请选择应用组" showSearch='true'>
-                        {this.props.dataSource.map(function (value, i) {
+                        {this.props.appgroupSource.map(function (value, i) {
                             return (<Option value={value.appgroup_id}>{value.friendly_name}</Option>)
+                        })}
+                    </Select>)}
+                </Form.Item>
+                <Form.Item label="桌面组">
+                    {getFieldDecorator('desktopgroup_id', {rules: [{ required: true, message: '应用组不能为空' }]})(
+                    <Select placeholder="请选择应用组" showSearch='true'>
+                        {this.props.desktopgroupSource.map(function (value, i) {
+                            return (<Option value={value.desktopgroup_id}>{value.desktopgroup_name}</Option>)
                         })}
                     </Select>)}
                 </Form.Item>
@@ -40,9 +48,15 @@ export class UserTable extends React.Component {
         super(props);
         this.state = { dataSource: [], 
             appGroupData: [],
+            desktopGroupData: [],
             visible: false,
             modelTitle : "",
-            select_user : { userid: "", domain: "", username : "", password : "", appgroup_id : ""},
+            select_user : { userid: "",
+                domain: "",
+                username : "",
+                password : "",
+                appgroup_id : "",
+                desktopgroup_id: ""},
             insert_new : false,
             confirmLoading : false,
         };
@@ -66,12 +80,24 @@ export class UserTable extends React.Component {
                 {
                     title: '应用组',
                     dataIndex: 'appgroup_id',
-                    width: '20%',
                     render: (text, record) => (
                         <span>
                             {this.state.appGroupData.map(function(value) {
                                 if (value.appgroup_id == record.appgroup_id) {
                                     return value.friendly_name;
+                                }
+                            })}
+                        </span>
+                    )
+                },
+                {
+                    title: '桌面组',
+                    dataIndex: 'desktopgroup_id',
+                    render: (text, record) => (
+                        <span>
+                            {this.state.desktopGroupData.map(function(value) {
+                                if (value.desktopgroup_id == record.desktopgroup_id) {
+                                    return value.desktopgroup_name;
                                 }
                             })}
                         </span>
@@ -117,6 +143,17 @@ export class UserTable extends React.Component {
                 }
             }
         });
+
+        $.ajax({
+            type: "get",
+            url:  "adminPortal/desktopgroup/list",
+            contentType: "application/json",
+            success: (data, status) => {
+                if (status == "success") {
+                    this.setState({ desktopGroupData : data });
+                }
+            }
+        });
     }
 
     DeleteData(key) {
@@ -142,14 +179,24 @@ export class UserTable extends React.Component {
         this.setState({visible: true,
             insert_new : true,
             modelTitle : "添加新用户",
-            select_user : { userid:"", domain: "", username : "", password : "", appgroup_id: ""}});
+            select_user : { userid:"",
+                domain: "",
+                username : "",
+                password : "",
+                appgroup_id: "",
+                desktopgroup_id: ""}});
     };
 
     ShowModifyDialog(data) {
         this.setState({visible: true,
             insert_new : false,
             modelTitle : "修改用户信息",
-            select_user : { userid: data.userid, domain: data.domain, username : data.username, password : data.password, appgroup_id : data.appgroup_id}});
+            select_user : { userid: data.userid, 
+                domain: data.domain,
+                username : data.username,
+                password : data.password,
+                appgroup_id : data.appgroup_id,
+                desktopgroup_id: data.desktopgroup_id}});
     };
 
     DialogFormChange(allFields) {
@@ -167,7 +214,9 @@ export class UserTable extends React.Component {
                     domain: values.domain,
                     username : values.username,
                     password : values.password,
-                    appgroup_id : values.appgroup_id});
+                    appgroup_id : values.appgroup_id,
+                    desktopgroup_id : values.desktopgroup_id});
+                console.log(json);
                 if (this.state.insert_new) {
                     console.log("insert new user");
                     $.ajax({
@@ -232,11 +281,15 @@ export class UserTable extends React.Component {
                     appgroup_id: Form.createFormField({
                         value: props.select_user.appgroup_id,
                     }),
+                    desktopgroup_id: Form.createFormField({
+                        value: props.select_user.desktopgroup_id,
+                    }),
                 };
             }
             })(UserFormTemplate);
         return ( <UserFrom select_user={this.state.select_user}
-             dataSource={this.state.appGroupData}
+             appgroupSource={this.state.appGroupData}
+             desktopgroupSource={this.state.desktopGroupData}
              onChange={this.DialogFormChange.bind(this)}
              wrappedComponentRef={this.saveFormRef.bind(this)}/> );
     }

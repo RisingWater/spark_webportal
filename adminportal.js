@@ -34,6 +34,8 @@ exports.update_user = function update_user(req, res) {
         "desktopgroup_id" : req.body.desktopgroup_id
     };
 
+    console.log(user);
+
     userdb_controller.update_user(user);
 
     res.sendStatus(200);
@@ -150,13 +152,83 @@ exports.list_desktopgroup = function list_desktopgroup(req, res) {
 }
 
 exports.add_desktopgroup = function add_desktopgroup(req, res) {
-    
+    var desktopgroup_id = utils.guid();
+    var desktopgroup = {
+        "desktopgroup_id" : desktopgroup_id,
+        "desktopgroup_name" : req.body.desktopgroup_name,
+        "desktoplist" : new Array()
+    };
+
+    desktopdb_controller.add_desktopgroup(desktopgroup);
+
+    res.sendStatus(200);
+}
+
+exports.update_desktopgroup = function update_desktopgroup(req, res) {
+    var desktopgroup = {
+        "desktopgroup_id" : req.body.desktopgroup_id,
+        "desktopgroup_name" : req.body.desktopgroup_name,
+    };
+
+    desktopdb_controller.update_desktopgroup(desktopgroup);
+
+    res.sendStatus(200);
+}
+
+exports.del_desktopgroup = function del_desktopgroup(req, res) {
+    var desktopgroup = {
+        "desktopgroup_id" : req.body.desktopgroup_id,
+    };
+
+    console.log(desktopgroup);
+
+    desktopdb_controller.del_desktopgroup(desktopgroup);
+
+    res.sendStatus(200);
+}
+
+exports.list_desktop = function get_desktoplist(req, res) {
+    var desktopgroup_id = req.params.id;
+    var alldesktopgroup = desktopdb_controller.list_desktopgroup()
+    var desktoplist = [];
+    alldesktopgroup.some(element => {
+        if (element.desktopgroup_id == desktopgroup_id) {
+            desktoplist = element.desktoplist;
+            return true;
+        }
+    });
+
+    res.send(desktoplist);
 }
 
 exports.add_desktop_to_desktopgroup = function add_desktop_to_desktopgroup(req, res) {
-    
+    var desktop_id = utils.guid();
+    var desktopgroup_id = req.params.id;
+    var desktop = {
+        "desktop_id" : desktop_id,
+        "desktop_name" : req.body.desktop_name,
+        "vdi_mode" : req.body.vdi_mode,
+        "desktop_ip" : req.body.desktop_ip,
+    }
+
+    console.log(desktopgroup_id);
+    console.log(desktop);
+
+    desktopdb_controller.add_desktop_to_desktopgroup(desktopgroup_id, desktop);
+
+    res.sendStatus(200);
 }
 
-exports.del_desktop_from_appgroup = function del_desktop_from_appgroup(req, res) {
-    
+exports.del_desktop_from_desktopgroup = function del_desktop_from_desktopgroup(req, res) {
+    var desktopgroup_id = req.params.id;
+    var desktop = {
+        "desktop_id" : req.body.desktop_id,
+    }
+
+    console.log(desktopgroup_id);
+    console.log(desktop);
+
+    desktopdb_controller.del_desktop_from_desktopgroup(desktopgroup_id, desktop);
+
+    res.sendStatus(200);   
 }

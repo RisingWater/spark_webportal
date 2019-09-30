@@ -48,7 +48,7 @@ app.post('/adminPortal/desktopgroup/add', adminPortal.add_desktopgroup);
 app.post('/adminPortal/desktopgroup/update', adminPortal.update_desktopgroup);
 app.post('/adminPortal/desktopgroup/del', adminPortal.del_desktopgroup);
 
-app.get('/adminPortal/dekstopgroup/:id/list_desktop', adminPortal.list_desktop);
+app.get('/adminPortal/desktopgroup/:id/list_desktop', adminPortal.list_desktop);
 app.post('/adminPortal/desktopgroup/:id/add', adminPortal.add_desktop_to_desktopgroup);
 app.post('/adminPortal/desktopgroup/:id/del', adminPortal.del_desktop_from_desktopgroup);
 

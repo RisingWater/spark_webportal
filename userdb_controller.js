@@ -18,7 +18,7 @@ exports.update_user = function (user) {
             element.password = user.password;
             element.domain = user.domain;
             element.appgroup_id = user.appgroup_id;
-            element.desktopgrou_id = user.desktopgrou_id;
+            element.desktopgroup_id = user.desktopgroup_id;
             return true;
         }
     });

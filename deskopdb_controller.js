@@ -68,7 +68,7 @@ exports.add_desktop_to_desktopgroup = function (desktopgroup_id, desktop) {
     db.save_desktopgroup_db(desktopgroups);
 }
 
-exports.del_desktop_to_desktopgroup = function (desktopgroup_id, desktop) {
+exports.del_desktop_from_desktopgroup = function (desktopgroup_id, desktop) {
     var desktopgroups = db.load_desktopgroup_db();
     desktopgroups.some(element => {
         if (element.desktopgroup_id == desktopgroup_id) {
