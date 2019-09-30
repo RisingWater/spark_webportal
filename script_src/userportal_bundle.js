@@ -38,7 +38,7 @@ class RootContext extends React.Component {
         super(props);
         this.state = { dataSource: [], 
             userid : this.getQueryVariable("userid"),
-            menuSelectedkey : "2" };
+            menuSelectedkey : "1" };
     }
 
     componentDidMount() {
@@ -82,6 +82,18 @@ class RootContext extends React.Component {
         this.setState(state);
     }
 
+    getDesktoplist() {
+        return (
+            this.state.dataSource.map((value, i) => {
+                return (
+                    <Col xs={12} sm={8} md={4}>
+                        <AppElement data={value} userid={this.state.userid}/>
+                    </Col>
+                );
+            })
+        )
+    }
+
     getApplist() {
         return (
             this.state.dataSource.map((value, i) => {
@@ -95,13 +107,14 @@ class RootContext extends React.Component {
     }
 
     render() {
-        const Menus = [ { name : "云桌面", key : "1", disable: true}, { name : "云应用", key : "2", disable: false} ];
+        const Menus = [ { name : "云桌面", key : "1", disable: false}, { name : "云应用", key : "2", disable: false} ];
         return (
             <Layout>
                 <HeaderBar title="简易接入平台"/>
                 <Layout>
                     <SideMenu menuSelectedChange={this.onMenuSelectChange.bind(this)} menus={Menus} selectKey={['2']}/>
                     <Layout.Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 1024}}>
+                        <div style={{width:50}}/>
                         <Row gutter={32} type="flex" justify="center" align="center">
                             {this.getApplist()}
                         </Row>
