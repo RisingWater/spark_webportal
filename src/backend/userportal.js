@@ -1,8 +1,8 @@
-var utils = require('./webserver-utils');
-var json_template = require('./respone_template');
-var userdb_controller = require('./userdb_controller');
-var appdb_controller = require('./appdb_controller');
-var desktopdb_controller = require('./deskopdb_controller');
+var utils = require('./webserver-utils.js');
+var json_template = require('./respone_template.js');
+var userdb_controller = require('./db/userdb_controller.js');
+var appdb_controller = require('./db/appdb_controller.js');
+var desktopdb_controller = require('./db/deskopdb_controller.js');
 
 function decrypt(uuid, encryption) {
     var encryption_new = encryption.replace(/\ /g, '+');

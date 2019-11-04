@@ -4,12 +4,12 @@ var path = require('path');
 var multer  = require('multer');
 var bodyParser = require('body-parser');
 
-var userportal = require('./userportal');
-var adminPortal = require('./adminportal');
-var db = require('./db');
+var userportal = require('./userportal.js');
+var adminPortal = require('./adminportal.js');
+var db = require('./db/db.js');
 var server_config = db.load_server_config();
 
-var upload = require('./upload');
+var upload = require('./upload.js');
 
 app.use('/uploadicon', upload);
 

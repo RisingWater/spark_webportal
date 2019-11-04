@@ -1,4 +1,4 @@
-var db = require('./db');
+var db = require('./db.js');
 
 exports.find_desktopgroup_byid = function find_desktopgroup_byid(desktopgroup_id) {
     var desktopgroup = null;

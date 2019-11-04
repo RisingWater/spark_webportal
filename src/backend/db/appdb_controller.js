@@ -1,4 +1,4 @@
-var db = require('./db');
+var db = require('./db.js');
 
 exports.find_appgroup_byid = function find_appgroup_byid(appgroup_id) {
     var appgroup = null;

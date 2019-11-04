@@ -1,4 +1,4 @@
-var db = require('./db');
+var db = require('./db.js');
 
 exports.list_user = function () {
     return db.load_user_db();

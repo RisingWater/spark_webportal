@@ -31,7 +31,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "build_dll": "webpack --config webpack.dll.config.js",
-    "start": "node webserver.js"
+    "start": "node ./src/backend/webserver.js"
   },
   "author": "",
   "license": "ISC"

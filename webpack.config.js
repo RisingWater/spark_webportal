@@ -5,9 +5,9 @@ module.exports = {
     devtool: 'false',
     mode: 'production',
     entry: {
-        admin_bundle: './script_src/admin_bundle.js',
-        login_bundle: './script_src/login_bundle.js',
-        userportal_bundle: './script_src/userportal_bundle.js',
+        admin_bundle: './src/frontend/admin_bundle.js',
+        login_bundle: './src/frontend/login_bundle.js',
+        userportal_bundle: './src/frontend/userportal_bundle.js',
     },
     output: {
         filename: '[name].js',

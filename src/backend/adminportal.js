@@ -1,7 +1,7 @@
-var userdb_controller = require('./userdb_controller');
-var appdb_controller = require('./appdb_controller');
-var desktopdb_controller = require('./deskopdb_controller')
-var utils = require('./webserver-utils');
+var userdb_controller = require('./db/userdb_controller.js');
+var appdb_controller = require('./db/appdb_controller.js');
+var desktopdb_controller = require('./db/deskopdb_controller.js')
+var utils = require('./webserver-utils.js');
 
 exports.list_user = function list_user(req, res) {
     var alluser = userdb_controller.list_user();

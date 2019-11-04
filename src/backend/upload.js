@@ -1,7 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var multer  = require('multer');
-var utils = require('./webserver-utils');
+var utils = require('./webserver-utils.js');
 
 var router = express.Router();
 var upload = multer({dest: 'upload_tmp/'});
