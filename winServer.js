@@ -1,4 +1,4 @@
-var db = require('./db/db.js');
+var db = require('./src/backend/db/db.js');
 var server_config = db.load_server_config();
 
 let Service = require('node-windows').Service;
