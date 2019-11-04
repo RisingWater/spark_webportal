@@ -1,1 +1,1 @@
-[{"appgroup_id":"2698c5fe-a2e7-4d1a-90bc-9c3f67b87ecf","app_server":"127.0.0.1","vdi_mode":"0","friendly_name":"default_group","delayLogout":"1","delayLogoutTime":"30","disconnectedPolicy":"0","applist":[{"appid":"387a11a6-6b37-426c-a56f-3a1e5c720c2e","appname":"记事本","appicon":"./appicon/d4c9e7d5-0814-4578-bd50-b9bce436e954.png","apppath":"C:\\Windows\\System32\\notepad.exe"},{"appid":"9c2b27b5-4de8-4517-92ba-40e4e62225c8","appname":"计算器","appicon":"./appicon/b4641a2e-a1a5-4a0a-ae59-5cd25bb8078f.png","apppath":"C:\\Windows\\Systerm32\\calc.exe"}]}]
+[]
