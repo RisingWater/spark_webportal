@@ -4,6 +4,31 @@ var userdb_controller = require('./db/userdb_controller.js');
 var appdb_controller = require('./db/appdb_controller.js');
 var desktopdb_controller = require('./db/deskopdb_controller.js');
 
+function isEmpty(v)
+{
+    switch (typeof v)
+    {
+    case 'undefined':
+        return true;
+    case 'string':
+        if (v.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length == 0) return true;
+        break;
+    case 'boolean':
+        if (!v) return true;
+        break;
+    case 'number':
+        if (0 === v || isNaN(v)) return true;
+        break;
+    case 'object':
+        if (null === v || v.length === 0) return true;
+        for (var i in v) {
+            return false;
+        }
+        return true;
+    }
+    return false;
+}
+
 function decrypt(uuid, encryption) {
     var encryption_new = encryption.replace(/\ /g, '+');
     var key = utils.getKey(uuid);
@@ -128,8 +153,14 @@ exports.getAppConnectionFile = function (req, res) {
         "userpass=" + user.password + "\n" +
         "userdomain=" + user.domain + "\n" + 
         "vdi=" + app_group.vdi_mode + "\n" + 
-        "remoteapp=" + app.apppath +"\n" + 
-        "background=0\n" +
+        "remoteapp=" + app.apppath +"\n";
+    
+    if (!isEmpty(app.mimetype))
+    {
+        IniString += "mimetype=" + app.mimetype +"\n";
+    }
+
+    IniString += "background=0\n" +
         "drag=0\n" + 
         "protocol=Xred\n" +
         "delayLogout=" + app_group.delayLogout + "\n" +

@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "userid": "f18ffd58-02c9-47d4-a4f1-5a1445ff361f",
+        "username": "u001",
+        "password": "1",
+        "domain": "wei.xun",
+        "appgroup_id": "33cc410e-0cdf-4b5b-b888-67e82b488912",
+        "desktopgroup_id": "27d2bd3f-1f2c-49e5-bebc-6187877c9811"
+    }
+]

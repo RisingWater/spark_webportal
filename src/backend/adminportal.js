@@ -97,6 +97,7 @@ exports.add_app_to_appgroup = function add_app_to_appgroup(req, res) {
         "appid" : app_id,
         "appname" : req.body.appname,
         "appicon" : req.body.appicon,
+        "mimetype" : req.body.mimetype,
         "apppath" : req.body.apppath,
     }
 

@@ -39,6 +39,10 @@ class AppFormTemplate extends React.Component {
                         </Upload>,
                     )}
                 </Form.Item>
+                <Form.Item label="应用关联mimetype">
+                    {getFieldDecorator('mimetype')
+                    (<Input placeholder="请输入应用关联mimetype"/>)}
+                </Form.Item>
                 <Form.Item label="应用路径">
                     {getFieldDecorator('apppath', {rules: [{ required: true, message: '应用路径不能为空' }]})(
                     <Input placeholder="请输入应用路径"/>)}
@@ -54,7 +58,7 @@ class AppTable extends React.Component {
         super(props);
         this.state = { dataSource: [], 
             visible: false,
-            select_app : { appid: "", appname: "", appicon : "", apppath : ""},
+            select_app : { appid: "", appname: "", appicon : "", mimetype : "", apppath : ""},
             confirmLoading : false,
         };
     }
@@ -71,6 +75,7 @@ class AppTable extends React.Component {
                         </span>
                     )
                 },
+                { title: '云应用关联mimetype', dataIndex: 'mimetype' },
                 { title: '云应用可执行文件路径', dataIndex: 'apppath' },
                 { title: '操作',
                     key: 'action',
@@ -126,7 +131,7 @@ class AppTable extends React.Component {
 
     ShowAddDialog() {
         this.setState({visible: true,
-            select_app : { appid:"", appname: "", appicon : "", apppath : ""}});
+            select_app : { appid:"", appname: "", appicon : "", mimetype : "", apppath : ""}});
     };
 
     DialogClickOk(e) {
@@ -138,6 +143,7 @@ class AppTable extends React.Component {
                 var json = JSON.stringify({appid: this.state.select_app.appid,
                     appname: values.appname,
                     appicon : values.appicon,
+                    mimetype : values.mimetype,
                     apppath : values.apppath});
 
                 console.log(json);
@@ -178,6 +184,9 @@ class AppTable extends React.Component {
                     }),
                     appicon: Form.createFormField({
                         value: props.select_app.appicon,
+                    }),
+                    mimetype: Form.createFormField({
+                        value: props.select_app.mimetype,
                     }),
                     apppath: Form.createFormField({
                         value: props.select_app.apppath,
