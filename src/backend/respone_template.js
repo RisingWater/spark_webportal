@@ -26,7 +26,7 @@ var appInfo_template = {
         "name" : "",
         "status" : "available",
         "switcher" : "normal",
-    }
+    },
 }
 
 exports.fill_usertoken = function fill_usertoken(userid, username, domain) {

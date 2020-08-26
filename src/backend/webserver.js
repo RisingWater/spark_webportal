@@ -25,6 +25,7 @@ app.get('/vPortal/V1.0/userportal/login/app', userportal.appGetToken);
 app.get('/vPortal/V1.0/userportal/login/token/:token', userportal.updateToken);
 app.get('/vPortal/V1.0/userportal/controller-manage/app/:token', userportal.getAppList);
 app.get('/vPortal/V1.0/userportal/controller-manage/app/:token/:appid/connectParamIni', userportal.getAppConnectionFile);
+app.get('/vPortal/V1.0/userportal/controller-manage/app/:token/:appid/mimetype', userportal.getAppMimeTypeList);
 
 app.get('/vPortal/V1.0/userportal/controller-manage/desktop/:token', userportal.getDesktopList);
 app.get('/vPortal/V1.0/userportal/controller-manage/desktop/:token/:desktopid/connectParamIni', userportal.getDesktopConnectionFile);

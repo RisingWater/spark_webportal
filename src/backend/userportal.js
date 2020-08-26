@@ -121,6 +121,37 @@ exports.getAppList = function (req, res) {
     res.send(applist);
 }
 
+exports.getAppMimeTypeList = function (req, res) {
+    var token_id = req.params.token;
+    var app_id = req.params.appid;
+   
+    var user = userdb_controller.finduser_byuserid(token_id);
+    
+    if (user == null) {
+        res.sendStatus(501);
+        return;
+    }
+
+    var app_group = appdb_controller.find_appgroup_byid(user.appgroup_id);
+
+    if (app_group == null)
+    {
+        res.sendStatus(502);
+        return;
+    }
+
+    var app = appdb_controller.find_app_byid(app_group, app_id);
+    if (app == null)
+    {
+        res.sendStatus(503);
+        return;
+    }
+
+    console.log("get mimetype: "  + app.mimetype);
+
+    res.send(app.mimetype);
+}
+
 exports.getAppConnectionFile = function (req, res) {
     var token_id = req.params.token;
     var app_id = req.params.appid;
@@ -153,14 +184,8 @@ exports.getAppConnectionFile = function (req, res) {
         "userpass=" + user.password + "\n" +
         "userdomain=" + user.domain + "\n" + 
         "vdi=" + app_group.vdi_mode + "\n" + 
-        "remoteapp=" + app.apppath +"\n";
-    
-    if (!isEmpty(app.mimetype))
-    {
-        IniString += "mimetype=" + app.mimetype +"\n";
-    }
-
-    IniString += "background=0\n" +
+        "remoteapp=" + app.apppath +"\n" +
+        "background=0\n" +
         "drag=0\n" + 
         "protocol=Xred\n" +
         "delayLogout=" + app_group.delayLogout + "\n" +
@@ -251,5 +276,5 @@ exports.login = function (req, res) {
 }
 
 exports.indexRedirection = function (req, res) {
-    res.redirect("Login.html");
+    res.redirect("Adminportal.html");
 }
