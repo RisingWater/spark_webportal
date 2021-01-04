@@ -1,0 +1,42 @@
+[
+    {
+        "software" : "xred",
+        "list" : [
+            {
+                "name" : "x86_64/uos20",
+                "url" : "http://192.168.12.127:8080/output/public/stable/Latest%20Release/Linux%E5%AE%A2%E6%88%B7%E7%AB%AF/%E5%9B%BD%E4%BA%A7%E5%8C%96%E7%B3%BB%E7%BB%9F/%E5%85%86%E8%8A%AF(x86_64%E6%8C%87%E4%BB%A4%E9%9B%86)/UOS%20v20%20SP1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ViClient-7.5.0.11-ubuntu18.04-x86_64_D20201028_v42011_signed.deb",
+                "version" : "7.5.0.11"
+            },
+            {
+                "name" : "aarch64/uos20",
+                "url" : "http://192.168.12.127:8080/output/public/stable/Latest%20Release/Linux%E5%AE%A2%E6%88%B7%E7%AB%AF/%E5%9B%BD%E4%BA%A7%E5%8C%96%E7%B3%BB%E7%BB%9F/%E9%A3%9E%E8%85%BE(aarch64%E6%8C%87%E4%BB%A4%E9%9B%86)/UOS%20v20%20SP1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ViClient-7.5.0.11-ubuntu18.04-aarch64_D20201028_v42011_signed.deb",
+                "version" : "7.5.0.11"
+            },
+            {
+                "name" : "mips64el/uos20",
+                "url" : "http://192.168.12.127:8080/output/public/stable/Latest%20Release/Linux%E5%AE%A2%E6%88%B7%E7%AB%AF/%E5%9B%BD%E4%BA%A7%E5%8C%96%E7%B3%BB%E7%BB%9F/%E9%BE%99%E8%8A%AF(mips64el%E6%8C%87%E4%BB%A4%E9%9B%86)/UOS%20v20%20SP1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ViClient-7.5.0.11-ubuntu18.04-mips64el_D20201028_v42011_signed.deb",
+                "version" : "7.5.0.11"
+            }
+        ]
+    },
+    {
+        "software" : "sep",
+        "list" : [
+            {
+                "name" : "x86_64/uos20",
+                "url" : "http://192.168.12.127:8080/output/public/stable/Latest%20Release/Linux%E5%AE%A2%E6%88%B7%E7%AB%AF/%E5%9B%BD%E4%BA%A7%E5%8C%96%E7%B3%BB%E7%BB%9F/%E5%85%86%E8%8A%AF(x86_64%E6%8C%87%E4%BB%A4%E9%9B%86)/UOS%20v20%20SP1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/SEPClient-5.08.0.8-ubuntu18.04-x86_64_D20200506_v40859_signed.deb",
+                "version" : "5.08.0.8"
+            },
+            {
+                "name" : "aarch64/uos20",
+                "url" : "http://192.168.12.127:8080/output/public/stable/Latest%20Release/Linux%E5%AE%A2%E6%88%B7%E7%AB%AF/%E5%9B%BD%E4%BA%A7%E5%8C%96%E7%B3%BB%E7%BB%9F/%E9%A3%9E%E8%85%BE(aarch64%E6%8C%87%E4%BB%A4%E9%9B%86)/UOS%20v20%20SP1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/SEPClient-5.08.0.8-ubuntu18.04-aarch64_D20200506_v40863_signed.deb",
+                "version" : "5.08.0.8"
+            },
+            {
+                "name" : "mips64el/uos20",
+                "url" : "http://192.168.12.127:8080/output/public/stable/Latest%20Release/Linux%E5%AE%A2%E6%88%B7%E7%AB%AF/%E5%9B%BD%E4%BA%A7%E5%8C%96%E7%B3%BB%E7%BB%9F/%E9%BE%99%E8%8A%AF(mips64el%E6%8C%87%E4%BB%A4%E9%9B%86)/UOS%20v20%20SP1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/SEPClient-5.08.0.8-ubuntu18.04-mips64el_D20200506_v40863_signed.deb",
+                "version" : "5.08.0.8"
+            }
+        ]
+    }
+]

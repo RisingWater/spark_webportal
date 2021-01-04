@@ -28,6 +28,10 @@ exports.load_desktopgroup_db = function load_desktopgroup_db() {
     return load_db('../../../db/desktopgroup_db.json');
 }
 
+exports.load_upgrade_db = function load_upgrade_db() {
+    return load_db('../../../db/upgrade.json');
+}
+
 exports.save_server_config = function save_server_config(data) {
     return save_db('../../../db/server_config.json', data);
 }

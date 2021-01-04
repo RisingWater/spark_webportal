@@ -58,3 +58,7 @@ exports.finduser_byuserid = function (userid) {
     return user;
 }
 
+exports.list_upgrade = function() {
+    return db.load_upgrade_db();
+}
+

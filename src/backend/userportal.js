@@ -275,6 +275,10 @@ exports.login = function (req, res) {
     res.send(user_id);   
 }
 
+exports.getUpgradeList = function (req, res) {
+    res.send(userdb_controller.list_upgrade());
+}
+
 exports.indexRedirection = function (req, res) {
     res.redirect("Adminportal.html");
 }
